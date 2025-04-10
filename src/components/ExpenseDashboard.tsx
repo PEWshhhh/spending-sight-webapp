@@ -1,11 +1,11 @@
 
 import { useExpense } from '@/contexts/ExpenseContext';
-import { calculateTotalExpenses, calculateBudgetPercentage, getBudgetStatus, formatCurrency } from '@/lib/expense-utils';
+import { calculateTotalExpenses, calculateBudgetPercentage, getBudgetStatus } from '@/lib/expense-utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { ExpenseCategory } from '@/types';
-import { BarChart3, AlertTriangle, DollarSign, Wallet } from 'lucide-react';
+import { BarChart3, AlertTriangle, Wallet } from 'lucide-react';
 
 export default function ExpenseDashboard() {
   const { budget, currentMonthExpenses, categories } = useExpense();
@@ -43,9 +43,9 @@ export default function ExpenseDashboard() {
         <CardContent>
           <div className="space-y-4">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Used: {formatCurrency(totalExpenses)}</span>
+              <span className="text-muted-foreground">Used: ₹{totalExpenses}</span>
               <span className="text-muted-foreground">
-                Remaining: {formatCurrency(remainingBudget)}
+                Remaining: ₹{remainingBudget}
               </span>
             </div>
             
@@ -79,7 +79,7 @@ export default function ExpenseDashboard() {
           <Wallet className="h-5 w-5 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(budget.monthly)}</div>
+          <div className="text-2xl font-bold">₹{budget.monthly}</div>
         </CardContent>
       </Card>
       
@@ -89,10 +89,10 @@ export default function ExpenseDashboard() {
             <CardTitle>Total Expenses</CardTitle>
             <CardDescription>Money spent this month</CardDescription>
           </div>
-          <DollarSign className="h-5 w-5 text-muted-foreground" />
+          <span>₹</span>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(totalExpenses)}</div>
+          <div className="text-2xl font-bold">₹{totalExpenses}</div>
         </CardContent>
       </Card>
       
@@ -105,7 +105,7 @@ export default function ExpenseDashboard() {
           <BarChart3 className="h-5 w-5 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{formatCurrency(budget.daily)}</div>
+          <div className="text-2xl font-bold">₹{budget.daily}</div>
         </CardContent>
       </Card>
       
@@ -134,7 +134,7 @@ export default function ExpenseDashboard() {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value) => formatCurrency(Number(value))} />
+                  <Tooltip formatter={(value) => `₹${Number(value)}`} />
                 </PieChart>
               </ResponsiveContainer>
             </div>

@@ -61,12 +61,14 @@ export default function BudgetSetupForm() {
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-1">
               <Label className="text-muted-foreground">Weekly Budget</Label>
-              <div className="text-xl font-medium">{formatCurrency(previewWeekly)}</div>
+              <div className="text-xl font-medium">₹
+              {previewWeekly}</div>
             </div>
             
             <div className="space-y-1">
               <Label className="text-muted-foreground">Daily Budget</Label>
-              <div className="text-xl font-medium">{formatCurrency(previewDaily)}</div>
+              <div className="text-xl font-medium">₹500
+              {previewDaily}</div>
             </div>
           </div>
           
@@ -74,7 +76,7 @@ export default function BudgetSetupForm() {
         </form>
       </CardContent>
       <CardFooter className="flex justify-between text-sm text-muted-foreground">
-        <p>Current monthly budget: {formatCurrency(budget.monthly)}</p>
+        <p>Current monthly budget: ₹{budget.monthly}</p>
       </CardFooter>
     </Card>
   );

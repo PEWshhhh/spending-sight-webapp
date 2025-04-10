@@ -1,7 +1,6 @@
 
 import { useExpense } from '@/contexts/ExpenseContext';
 import { Button } from '@/components/ui/button';
-import { formatCurrency } from '@/lib/expense-utils';
 import {
   Sidebar,
   SidebarContent,
@@ -143,7 +142,7 @@ export default function AppSidebar({ activeTab, setActiveTab }: AppSidebarProps)
           <div className="p-4 border-t dark:border-slate-700">
             <div className="flex flex-col space-y-1 mb-2">
               <span className="text-xs font-semibold">Monthly Budget</span>
-              <span className="text-lg font-bold">{formatCurrency(budget.monthly)}</span>
+              <span className="text-lg font-bold">₹{budget.monthly}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm">© 2025 ExpenseTrack</span>
