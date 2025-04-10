@@ -116,27 +116,8 @@ export default function AppSidebar({ activeTab, setActiveTab }: AppSidebarProps)
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
-          </SidebarGroup>
+          </SidebarGroup>        
           
-          <SidebarGroup>
-            <SidebarGroupLabel>Actions</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton onClick={() => setResetDialogOpen(true)}>
-                    <RefreshCcw className="h-4 w-4 mr-2" />
-                    <span>Reset Month</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <SidebarMenuButton onClick={handleExport}>
-                    <Download className="h-4 w-4 mr-2" />
-                    <span>Export CSV</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
           <div className="p-4 border-t dark:border-slate-700">
